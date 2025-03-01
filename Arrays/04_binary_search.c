@@ -20,8 +20,6 @@ int binarySearch(int array[], int size, int key) {
 }
 
 
-
-
 int main() {
 
     int array[] = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
