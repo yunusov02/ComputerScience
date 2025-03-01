@@ -1,0 +1,1 @@
+Some file are empty because all of these inside 01_pyramid_patter.c file
