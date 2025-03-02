@@ -5,7 +5,10 @@ int removeDuplicates(int arr[], int n) {
 
     int j = 0;
     for (int i = 1; i < n - 1; i++) {
-        if (arr[i] != arr[j]) arr[++j] = arr[i];
+        if (arr[i] != arr[j]) {
+            j++;
+            arr[j] = arr[i];
+        } 
     }
 
     return j + 1;
@@ -19,9 +22,16 @@ int main() {
 
     int size = sizeof(array) / sizeof(array[0]);
 
-    size = removeDuplicates(array, size);
-
+    printf("Original Array\n");
     for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    printf("Array after removing duplicates\n");
+
+    int new_size = removeDuplicates(array, size);
+    for (int i = 0; i <new_size; i++) {
         printf("%d ", array[i]);
     }
 
