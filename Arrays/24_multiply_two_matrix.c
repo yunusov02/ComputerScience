@@ -4,23 +4,28 @@
 #define N 3
 
 
-int **addTwoMatrix(int matrix1[][N], int matrix2[][N]) {
+int **multiplyTwoMatrix(int matrix1[][N], int matrix2[][N]) {
 
-    int **arr = (int **)malloc(N * sizeof(int *));
+    int **res = (int **)malloc(N * sizeof(int *));
 
     for (int i = 0; i < N; i++) {
-        arr[i] = (int *)malloc(N * sizeof(int));
+        res[i] = (int *)malloc(N * sizeof(int));
     }
 
-    for (int i = 0;  i < N; i++) {
+    for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-            arr[i][j] = matrix1[i][j] + matrix2[i][j];
+
+            res[i][j] = 0;
+
+            for (int k = 0; k < N; k++) {
+                res[i][j] += matrix1[i][k] + matrix2[k][j];
+            }
+
         }
     }
 
-    return arr;
-
-}
+    return res;
+} 
 
 
 void printArray(int **array) {
@@ -32,13 +37,12 @@ void printArray(int **array) {
         printf("\n");
     }
 
-    printf("\n");
-
 }
 
 
 int main() {
 
+    
     int matrix1[N][N] = {
         {1, 2, 3},
         {4, 5, 6},
@@ -51,7 +55,7 @@ int main() {
         {3, 2, 1}
     };
 
-    int **res = addTwoMatrix(matrix1, matrix2);
+    int **res = multiplyTwoMatrix(matrix1, matrix2);
 
     printArray(res);
 
@@ -63,3 +67,4 @@ int main() {
 
     return 0;
 }
+
