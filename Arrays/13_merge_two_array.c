@@ -1,54 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int *mergeArrays(int arr1[], int n1, int arr2[], int n2) {
-    int *res = (int *)malloc((n1 + n2) * sizeof(int));
+  int *res = (int *)malloc((n1 + n2) * sizeof(int));
 
-    int index = 0;
+  int index = 0;
 
-    for (int i = 0; i < n1; i++) {
-        res[index] = arr1[i];
-        index++;
-    }
+  for (int i = 0; i < n1; i++) {
+    res[index] = arr1[i];
+    index++;
+  }
 
-    for (int i = 0; i < n2; i++) {
-        res[index] = arr2[i];
-        index++;
-    }
+  for (int i = 0; i < n2; i++) {
+    res[index] = arr2[i];
+    index++;
+  }
 
-    return res;
+  return res;
 }
 
 int main() {
-    int arr1[] = {1, 3, 5};
-    int n1 = sizeof(arr1) / sizeof(arr1[0]);
-    int arr2[] = {2, 4, 6};
-    int n2 = sizeof(arr2) / sizeof(arr2[0]);
+  int arr1[] = {1, 3, 5};
+  int n1 = sizeof(arr1) / sizeof(arr1[0]);
+  int arr2[] = {2, 4, 6};
+  int n2 = sizeof(arr2) / sizeof(arr2[0]);
 
-    // Merge the two arrays
-    int *res = mergeArrays(arr1, n1, arr2, n2);
-    
-    for (int i = 0; i < n1 + n2; i++) printf("%d ", res[i]);
+  // Merge the two arrays
+  int *res = mergeArrays(arr1, n1, arr2, n2);
 
-    printf("\n");
+  for (int i = 0; i < n1 + n2; i++) printf("%d ", res[i]);
 
-    free(res);
+  printf("\n");
 
-    return 0;
+  free(res);
+
+  return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 // int main() {
 
@@ -76,7 +63,6 @@ int main() {
 //     for (int i = 0; i < size; i++) {
 //         printf("%d ", array[i]);
 //     }
-
 
 //     return 0;
 // }

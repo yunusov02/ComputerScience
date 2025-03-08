@@ -1,54 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int main() {
-    int array1[] = { 1, 2, 2, 3, 5, 6, 7, 8, 18, 29, 37 };
-    int array2[] = { 2, 2, 4, 5, 7, 9, 10, 18 };
+  int array1[] = {1, 2, 2, 3, 5, 6, 7, 8, 18, 29, 37};
+  int array2[] = {2, 2, 4, 5, 7, 9, 10, 18};
 
-    int n1 = sizeof(array1) / sizeof(array1[0]);
-    int n2 = sizeof(array2) / sizeof(array2[0]);
+  int n1 = sizeof(array1) / sizeof(array1[0]);
+  int n2 = sizeof(array2) / sizeof(array2[0]);
 
-    int index = 0;
-    int common_array[n1 + n2];
+  int index = 0;
+  int common_array[n1 + n2];
 
-    int i = 0, j = 0;
+  int i = 0, j = 0;
 
-    while (i < n1 && j < n2) {
-        if (array1[i] < array2[j]) {
-            i++;
-        } else if (array1[i] > array2[j]) {
-            j++;
-        } else {
-            int flag = 0;
+  while (i < n1 && j < n2) {
+    if (array1[i] < array2[j]) {
+      i++;
+    } else if (array1[i] > array2[j]) {
+      j++;
+    } else {
+      int flag = 0;
 
-            for (int k = 0; k < index; k++) {
-                if (array1[i] == common_array[k]) flag = 1;
-            }
+      for (int k = 0; k < index; k++) {
+        if (array1[i] == common_array[k]) flag = 1;
+      }
 
-            if (flag == 0) {
-                common_array[index] = array1[i];
-                index++;
-            }
-            i++;
-            j++;
-        }
+      if (flag == 0) {
+        common_array[index] = array1[i];
+        index++;
+      }
+      i++;
+      j++;
     }
+  }
 
+  for (int i = 0; i < index; i++) {
+    printf("%d ", common_array[i]);
+  }
+  printf("\n");
 
-    for (int i = 0; i < index; i++) {
-        printf("%d ", common_array[i]);
-    }
-    printf("\n");
-
-    return 0;
+  return 0;
 }
-
-
-
-
-
-
 
 // BELOW CODE IS NOT EFFICIENT
 

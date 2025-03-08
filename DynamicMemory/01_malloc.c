@@ -2,40 +2,40 @@
 #include <stdlib.h>
 
 int main() {
-    int *arr = (int *)malloc(2 * sizeof(int));
+  int *arr = (int *)malloc(2 * sizeof(int));
 
-    if (arr == NULL) {
-        printf("Memory Allocation failed\n");
-    }
-    int count = 0, capacity = 2, num;
+  if (arr == NULL) {
+    printf("Memory Allocation failed\n");
+  }
+  int count = 0, capacity = 2, num;
 
-    printf("Enter numbers (0 to stop): \n");    
+  printf("Enter numbers (0 to stop): \n");
 
-    while (1) {
-        scanf("%d", &num);
+  while (1) {
+    scanf("%d", &num);
 
-        if (num == 0) break;
+    if (num == 0) break;
 
-        if (count == capacity) {
-            capacity *= 2;
-            arr = (int *)realloc(arr, capacity * sizeof(int));
-            if (arr == NULL) {
-                printf("Memory reallocation is failed");
-                return 1;
-            }
-        }
-
-        arr[count] = num;
-        count++;
+    if (count == capacity) {
+      capacity *= 2;
+      arr = (int *)realloc(arr, capacity * sizeof(int));
+      if (arr == NULL) {
+        printf("Memory reallocation is failed");
+        return 1;
+      }
     }
 
-    printf("Print Entered values\n");
+    arr[count] = num;
+    count++;
+  }
 
-    for (int i = 0; i < count; i++) {
-        printf("%d ", arr[i]);
-    }
+  printf("Print Entered values\n");
 
-    free(arr);
+  for (int i = 0; i < count; i++) {
+    printf("%d ", arr[i]);
+  }
 
-    return 0;
+  free(arr);
+
+  return 0;
 }

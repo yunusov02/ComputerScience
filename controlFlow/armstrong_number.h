@@ -1,11 +1,9 @@
 #ifndef ARMSTRONG
 #define ARMSTRONG
 
-
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 int armstrong_number(int number);
-
 
 #endif
